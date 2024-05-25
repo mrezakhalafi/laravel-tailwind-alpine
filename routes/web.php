@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 
 Route::get('/', function () {
     return view('welcome', ["title" => "Homepage"]);
@@ -25,7 +26,20 @@ Route::get('/contact', function () {
     return view('contact', ["title" => "Contact"]);
 });
 
+Route::get('/authors', function () {
+    return view('authors', ["title" => "Authors Lists", "authors" => User::all()]);
+});
+
 Route::get('/authors/{user}', function (User $user) {
 
     return view('posts', ["title" => "Articles by " . $user->name, "posts" => $user->posts]);
+});
+
+Route::get('/categories', function () {
+    return view('categories', ["title" => "Categories Lists", "categories" => Category::all()]);
+});
+
+Route::get('/category/{category}', function (Category $category) {
+
+    return view('posts', ["title" => "Category is " . $category->name, "posts" => $category->posts]);
 });

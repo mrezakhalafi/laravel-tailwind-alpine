@@ -21,6 +21,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'author_id' => User::factory(),
+            'category_id' => fake()->numberBetween(1, 3),
             'slug' => Str::slug(fake()->sentence()),
             'body' => fake()->text()
         ];
