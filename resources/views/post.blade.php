@@ -11,10 +11,10 @@
                     <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                         <img class="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
                         <div>
-                            <a href="/authors/{{ $post->author->id }}" rel="author" class="text-xl font-bold text-gray-900 dark:text-white hover:underline">{{ $post->author->name }}</a>
+                            <a href="/posts?author={{ $post->author->id }}" rel="author" class="text-xl font-bold text-gray-900 dark:text-white hover:underline">{{ $post->author->name }}</a>
                             <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="{{ $post->created_at->diffForHumans() }}" title="{{  $post->created_at->diffForHumans()  }}">{{ $post->created_at->diffForHumans() }}</time></p>
                             <span class="bg-{{ $post->category->color }}-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                              <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                              <a href="/posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a>
                             </span>
                           </div>
                     </div>
