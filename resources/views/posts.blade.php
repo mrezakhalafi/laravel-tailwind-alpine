@@ -3,7 +3,10 @@
   <x-slot:title>{{ $title }}</x-slot:title>
 
   <div class="py-6 px-4 mx-auto max-w-screen-xl lg:py-6 lg:px-6">
-    <div class="mx-auto max-w-screen-md sm:text-center">
+
+    {{ $posts->links() }}
+
+    <div class="mx-auto mt-5 pt-5 max-w-screen-md sm:text-center">
        <form>
         @if(request('category'))
           <input type="hidden" name="category" value="{{ request('category') }}">
@@ -12,6 +15,7 @@
         @if(request('author'))
         <input type="hidden" name="author" value="{{ request('author') }}">
       @endif
+
         <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
             <div class="relative w-full">
               <label for="email" class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Search</label>
